@@ -1244,16 +1244,25 @@
       };
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSMXWF15GP"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GSMXWF15GP"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-GSMXWF15GP');
+      gtag("config", "G-GSMXWF15GP");
     </script>
     <!-- Google AdSense Verification -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219399801950643" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8219399801950643"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Add error banner at the top of the body -->
@@ -1276,38 +1285,10 @@
           />
           <span class="dynamic-contrast">ColorPeek</span>
         </div>
-        <button id="mobileMenuToggle" class="md:hidden ml-auto" aria-label="Toggle menu">
-          <svg class="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        <!-- Hamburger Menu Toggle Button (Visible on Mobile) -->
-<button
-class="md:hidden text-gray-900 dark:text-white focus:outline-none ml-auto"
-id="mobileMenuToggle"
-aria-label="Toggle menu"
->
-<svg
-  class="w-6 h-6"
-  fill="none"
-  stroke="currentColor"
-  viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
-    d="M4 6h16M4 12h16M4 18h16"
-  ></path>
-</svg>
-</button>
-<div
-id="mobileMenu"
-class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 items-center justify-center gap-4 md:gap-2"
->
-<div class="nav-right w-full md:w-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
-  <div class="nav-links">
+        <div
+          class="nav-right w-full md:w-auto mt-4 md:mt-0 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2"
+        >
+          <div class="nav-links">
             <div class="nav-group">
               <a href="#" class="dynamic-contrast" aria-label="Home page"
                 >Home</a
@@ -6657,14 +6638,6 @@ class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 items-c
             }
           }
         }
-      });
-    </script>
-
-    <script>
-      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenuToggle?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('hidden');
       });
     </script>
 
