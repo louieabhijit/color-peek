@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - ColorPeek</title>
+    <meta
+      name="description"
+      content="Privacy Policy for ColorPeek - How we handle your data and protect your privacy."
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Modern CSS Variables for Light Mode */
+      :root {
+        --transition: all 0.3s ease;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+      }
+
+      /* Dark mode toggle styling */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #3b82f6;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #111827;
+        color: #f8fafc;
+      }
+
+      /* Navbar styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-mode .navbar {
+        background: rgba(17, 24, 39, 0.6);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .navbar.scrolled {
+        background: rgba(17, 24, 39, 0.9);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #0f172a;
+      }
+
+      .dark-mode .logo {
+        color: #f8fafc;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 250;
+        position: relative;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .nav-links a {
+        color: #f8fafc;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Check and apply theme from local storage -->
+    <script>
+      (function () {
+        // Only apply dark mode if explicitly saved in localStorage
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="assets/logo.svg"
+            alt="ColorPeek Logo"
+            width="30"
+            height="30"
+          />
+          <span>ColorPeek</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="index.html" aria-label="Home page">Home</a>
+          </div>
+
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Content -->
+    <div class="container mx-auto px-4 py-16 pt-32 max-w-4xl">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+        <h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Privacy Policy
+        </h1>
+
+        <div
+          class="prose prose-lg max-w-none dark:prose-invert text-gray-700 dark:text-gray-300"
+        >
+          <p class="mb-4">
+            Last Updated: <span id="last-updated">May 1, 2023</span>
+          </p>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Introduction
+            </h2>
+            <p class="mb-4">
+              At ColorPeek, we respect your privacy and are committed to
+              protecting your personal data. This Privacy Policy explains how we
+              collect, use, and safeguard your information when you use our
+              website.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Information We Collect
+            </h2>
+            <p class="mb-4">
+              ColorPeek is designed to operate without collecting personal data.
+              We collect:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+              <li>
+                Images you upload for color extraction (these are processed on
+                your device and not stored on our servers)
+              </li>
+              <li>
+                Anonymous usage data through analytics to improve our service
+              </li>
+              <li>Browser cookies for theme preferences (dark/light mode)</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              How We Use Your Information
+            </h2>
+            <p class="mb-4">The limited information we collect is used to:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+              <li>Provide and maintain our service</li>
+              <li>Improve, personalize, and expand our service</li>
+              <li>Understand how our service is used</li>
+              <li>Develop new features and functionality</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Cookies
+            </h2>
+            <p class="mb-4">
+              We use cookies to store your theme preferences (dark/light mode).
+              You can instruct your browser to refuse all cookies or to indicate
+              when a cookie is being sent.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Third-Party Services
+            </h2>
+            <p class="mb-4">
+              ColorPeek uses third-party services that may collect information
+              used to identify you. These include:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+              <li>Google Analytics (for usage statistics)</li>
+              <li>CDN providers for serving content</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Data Security
+            </h2>
+            <p class="mb-4">
+              The security of your data is important to us. Images you upload
+              for color extraction are processed in your browser and are not
+              stored on our servers. Our service is designed to be
+              privacy-focused.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Changes to This Privacy Policy
+            </h2>
+            <p class="mb-4">
+              We may update our Privacy Policy from time to time. We will notify
+              you of any changes by posting the new Privacy Policy on this page
+              and updating the "Last Updated" date.
+            </p>
+          </section>
+
+          <section class="mb-4">
+            <h2
+              class="text-xl font-semibold mb-4 text-gray-800 dark:text-white"
+            >
+              Contact Us
+            </h2>
+            <p class="mb-4">
+              If you have any questions about this Privacy Policy, please
+              contact us at:
+              <a
+                href="mailto:contact@colorpeek.app"
+                class="text-blue-600 dark:text-blue-400 hover:underline"
+                >contact@colorpeek.app</a
+              >
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gray-100 dark:bg-gray-900 mt-10 py-6 border-t border-gray-200 dark:border-gray-800"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              © <span id="current-year">2023</span> ColorPeek. All rights
+              reserved.
+            </p>
+            <script>
+              document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+            </script>
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="mailto:contact@colorpeek.app"
+              class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            >
+              Contact Us
+            </a>
+            <a
+              href="privacy-policy.html"
+              class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="sitemap.html"
+              class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            >
+              Sitemap
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme toggle script -->
+    <script>
+      // Theme toggle functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const themeToggle = document.getElementById("themeToggle");
+
+        // Set initial toggle state based on current theme
+        themeToggle.checked =
+          document.documentElement.classList.contains("dark-mode");
+
+        // Add toggle event listener
+        themeToggle.addEventListener("change", function () {
+          if (this.checked) {
+            document.documentElement.classList.add("dark-mode");
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark-mode");
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+          }
+        });
+
+        // Initialize scroll behavior for navbar
+        window.addEventListener("scroll", function () {
+          const navbar = document.querySelector(".navbar");
+
+          if (window.scrollY > 10) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

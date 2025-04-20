@@ -1,0 +1,20 @@
+# robots.txt for ColorPeek – manage crawler access and indexing
+
+# Allow all well-behaved bots full access to public site
+User-agent: *
+Allow: /
+Disallow: /backups/
+Disallow: /js/tests/
+
+# Sitemap location
+Sitemap: https://colorpeek.app/sitemap.xml
+
+# Limit crawling rate for aggressive bots to reduce server strain
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
