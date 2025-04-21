@@ -3,7 +3,7 @@
    <!-- Main page -->
    <url>
       <loc>https://color-peek.com/</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
@@ -11,49 +11,99 @@
    <!-- Pages -->
    <url>
       <loc>https://color-peek.com/privacy-policy.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/about.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/faq.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/sitemap.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/contact.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/blog.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    
+   <!-- Blog Articles -->
    <url>
       <loc>https://color-peek.com/blog/color-theory-guide.html</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/top-color-palette-tools.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/color-extraction-guide.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/creating-color-palettes.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/color-harmony-guide.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/web-accessibility-colors.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/color-extraction-tips.html</loc>
+      <lastmod>2025-06-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/color-psychology-marketing.html</loc>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
@@ -61,56 +111,56 @@
    <!-- Major sections -->
    <url>
       <loc>https://color-peek.com/#extractedColorsContainer</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#colorDetailsContainer</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#colorCombinationsContainer</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#colorCodeSyntaxContainer</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#contrastCheckerContainer</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#keyboard-shortcuts</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#feature-details</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
       <loc>https://color-peek.com/#how-it-works</loc>
-      <lastmod>2023-05-15</lastmod>
+      <lastmod>2025-06-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
