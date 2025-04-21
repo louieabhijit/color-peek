@@ -175,6 +175,11 @@
         --navlink-hover: #93c5fd;
       }
 
+      /* Ensure error banner is always hidden */
+      #backendErrorBanner {
+        display: none !important;
+      }
+
       /* Animation for newly added colors */
       @keyframes highlight-pulse {
         0% {
@@ -4273,12 +4278,15 @@
       };
 
       // Define backend URL
-      const BACKEND_URL = "http://localhost:5051";
+      const BACKEND_URL = "https://api.color-peek.com";
 
       // Test backend connectivity
       async function testBackendConnectivity() {
         try {
           console.log("Testing backend connectivity...");
+          // Always keep the error banner hidden regardless of backend status
+          document.getElementById("backendErrorBanner").classList.add("hidden");
+
           const response = await fetch(`${BACKEND_URL}/health`, {
             method: "GET",
             mode: "cors",
@@ -4286,23 +4294,16 @@
 
           if (response.ok) {
             console.log("Backend server is responding properly");
-            document
-              .getElementById("backendErrorBanner")
-              .classList.add("hidden");
           } else {
             console.error(
               "Backend server responded with status:",
               response.status
             );
-            document
-              .getElementById("backendErrorBanner")
-              .classList.remove("hidden");
+            // Don't show error banner
           }
         } catch (error) {
           console.error("Error connecting to backend:", error);
-          document
-            .getElementById("backendErrorBanner")
-            .classList.remove("hidden");
+          // Don't show error banner
         }
       }
 
