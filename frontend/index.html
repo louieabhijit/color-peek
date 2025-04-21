@@ -163,7 +163,6 @@
         --color-text: #0f172a;
         --navlink-hover: #2563eb;
       }
-
       /* Dark Mode Variables */
       .dark-mode {
         --primary: #3b82f6;
@@ -563,6 +562,117 @@
 
       .nav-links a:hover::after {
         width: 100%;
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .mobile-menu-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: currentColor;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+
+      .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg);
+        z-index: 1000;
+        padding-top: 70px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+      }
+
+      .mobile-nav.active {
+        transform: translateX(0);
+      }
+
+      .mobile-nav .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .mobile-nav .nav-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 !important;
+        gap: 15px !important;
+        margin-bottom: 15px;
+      }
+
+      .mobile-nav .nav-group:not(:last-child)::after {
+        content: "";
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.1;
+        margin: 10px 0;
+        transform: none;
+      }
+
+      .mobile-nav .nav-links a {
+        font-size: 1.1rem;
+        padding: 8px 0;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .nav-right .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .mobile-nav {
+          display: block;
+        }
+
+        .navbar {
+          padding: 10px 20px;
+        }
+
+        .navbar.scrolled {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .nav-right {
+          gap: 1rem;
+        }
       }
 
       /* Toggle Switch Styles */
@@ -1276,7 +1386,7 @@
       <span>Cannot connect to backend server. Please try again later.</span>
     </div>
     <div class="navbar-container">
-      <div class="navbar flex-wrap md:flex-nowrap flex-col md:flex-row">
+      <div class="navbar">
         <div class="logo">
           <img
             src="assets/logo.svg"
@@ -1286,9 +1396,7 @@
           />
           <span class="dynamic-contrast">ColorPeek</span>
         </div>
-        <div
-          class="nav-right w-full md:w-auto mt-4 md:mt-0 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2"
-        >
+        <div class="nav-right">
           <div class="nav-links">
             <div class="nav-group">
               <a href="#" class="dynamic-contrast" aria-label="Home page"
@@ -1349,6 +1457,17 @@
             <input type="checkbox" id="themeToggle" />
             <span class="toggle-slider"></span>
           </label>
+
+          <!-- Mobile Menu Toggle Button -->
+          <div
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </div>
@@ -4133,7 +4252,7 @@
       };
 
       // Define backend URL
-      const BACKEND_URL = "http://localhost:5051";
+      const BACKEND_URL = "http://localhost:5050";
 
       // Theme toggle functionality
       document.addEventListener("DOMContentLoaded", function () {
@@ -6681,5 +6800,31 @@
         </div>
       </div>
     </footer>
+
+    <!-- Mobile Menu Toggle JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        if (mobileMenuToggle && mobileNav) {
+          mobileMenuToggle.addEventListener("click", function () {
+            mobileMenuToggle.classList.toggle("active");
+            mobileNav.classList.toggle("active");
+            document.body.classList.toggle("mobile-menu-open");
+          });
+
+          // Close menu when clicking on links
+          const mobileNavLinks = mobileNav.querySelectorAll("a");
+          mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", function () {
+              mobileMenuToggle.classList.remove("active");
+              mobileNav.classList.remove("active");
+              document.body.classList.remove("mobile-menu-open");
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
