@@ -1,0 +1,1 @@
+<a href="blog.html" class="dynamic-contrast" aria-label="Blog page">Blog</a>

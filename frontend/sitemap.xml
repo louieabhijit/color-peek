@@ -17,10 +17,45 @@
    </url>
    
    <url>
+      <loc>https://color-peek.com/about.html</loc>
+      <lastmod>2023-05-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/faq.html</loc>
+      <lastmod>2023-05-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
       <loc>https://color-peek.com/sitemap.html</loc>
       <lastmod>2023-05-15</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/contact.html</loc>
+      <lastmod>2023-05-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog.html</loc>
+      <lastmod>2023-05-15</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <url>
+      <loc>https://color-peek.com/blog/color-theory-guide.html</loc>
+      <lastmod>2023-05-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    
    <!-- Major sections -->

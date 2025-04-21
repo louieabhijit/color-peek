@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - ColorPeek | Color Extraction and Design Resources</title>
+    <meta
+      name="description"
+      content="Read our latest articles on color theory, web design, digital art, and how to use ColorPeek's tools effectively in your design workflow."
+    />
+    <meta name="author" content="Abhijit, ColorPeek" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://color-peek.com/blog" />
+
+    <!-- Favicon and Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Modern CSS Variables for Light Mode */
+      :root {
+        --transition: all 0.3s ease;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+      }
+
+      /* Dark mode toggle styling */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #3b82f6;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #111827;
+        color: #f8fafc;
+      }
+
+      /* Navbar styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-mode .navbar {
+        background: rgba(17, 24, 39, 0.6);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .navbar.scrolled {
+        background: rgba(17, 24, 39, 0.9);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #0f172a;
+      }
+
+      .dark-mode .logo {
+        color: #f8fafc;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 250;
+        position: relative;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .nav-links a {
+        color: #f8fafc;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      /* Blog card hover effects */
+      .blog-card {
+        transition: all 0.3s ease;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .blog-card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Blog hero section */
+      .blog-hero {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      }
+
+      .dark-mode .blog-hero {
+        background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+      }
+
+      /* Category tags */
+      .category-tag {
+        transition: all 0.2s ease;
+      }
+
+      .category-tag:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed, #2563eb);
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 6s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Check and apply theme from local storage -->
+    <script>
+      (function () {
+        // Only apply dark mode if explicitly saved in localStorage
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="assets/logo.svg"
+            alt="ColorPeek Logo"
+            width="30"
+            height="30"
+          />
+          <span>ColorPeek</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="index.html" aria-label="Home page">Home</a>
+            <a href="about.html" aria-label="About page">About</a>
+            <a href="faq.html" aria-label="FAQ page">FAQ</a>
+            <a href="blog.html" aria-label="Blog page" class="active">Blog</a>
+            <a href="contact.html" aria-label="Contact page">Contact</a>
+          </div>
+
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Hero Section -->
+    <div class="blog-hero py-20 px-4 mt-16">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          ColorPeek Blog
+        </h1>
+        <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+          Insights, tips, and resources on color theory, design principles, and
+          making the most of ColorPeek's features.
+        </p>
+      </div>
+    </div>
+
+    <!-- Blog Categories -->
+    <div class="bg-gray-50 dark:bg-gray-900 py-6">
+      <div class="container mx-auto max-w-4xl px-4">
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+            >All</a
+          >
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200"
+            >Color Theory</a
+          >
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200"
+            >Design</a
+          >
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200"
+            >Tutorials</a
+          >
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200"
+            >Accessibility</a
+          >
+          <a
+            href="#"
+            class="category-tag px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200"
+            >Tools</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Content -->
+    <div class="container mx-auto max-w-4xl px-4 py-12">
+      <!-- Featured Article -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Featured Article
+        </h2>
+        <div
+          class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg"
+        >
+          <div class="md:flex">
+            <div class="md:w-1/2">
+              <img
+                src="assets/blog/color-theory-guide.jpg"
+                alt="Color Theory Guide"
+                class="h-full w-full object-cover"
+                style="max-height: 300px"
+                onerror="this.src='https://via.placeholder.com/600x400/3b82f6/ffffff?text=Color+Theory+Guide'"
+              />
+            </div>
+            <div class="p-6 md:w-1/2">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Color Theory
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/color-theory-guide.html"
+                  >The Complete Guide to Color Theory for Designers</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Learn the fundamentals of color theory and how to apply these
+                principles in your design projects for maximum impact.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>April 20, 2025</span>
+                <span class="mx-2">•</span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Articles -->
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Recent Articles
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- New Article - Top 5 Color Palette Tools -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/top-color-palette-tools.html">
+              <img
+                src="assets/blog/top-color-palette-tools.jpg"
+                alt="Top 5 Free Color Palette Tools for Designers"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/3b82f6/ffffff?text=Top+Color+Palette+Tools'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Tools
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/top-color-palette-tools.html"
+                  >Top 5 Free Color Palette Tools for Designers in 2025</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Discover the best free color palette generators and extraction
+                tools that every designer should have in their toolkit for 2025.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>May 15, 2025</span>
+                <span class="mx-2">•</span>
+                <span>7 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Article - Color Extraction Guide -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/color-extraction-guide.html">
+              <img
+                src="assets/blog/color-extraction-guide.jpg"
+                alt="Extract Colors from Images"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/dc2626/ffffff?text=Color+Extraction+Guide'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Web Design
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/color-extraction-guide.html"
+                  >How to Extract Colors from an Image for Web Design</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Learn how to extract perfect color palettes from any image for
+                your web design projects using ColorPeek's free tool.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>April 20, 2025</span>
+                <span class="mx-2">•</span>
+                <span>6 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article 1 -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/creating-color-palettes.html">
+              <img
+                src="assets/blog/creating-color-palettes.jpg"
+                alt="Creating Color Palettes"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/4f46e5/ffffff?text=Creating+Color+Palettes'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Design
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/creating-color-palettes.html"
+                  >Creating Harmonious Color Palettes from Any Image</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Discover how to extract and refine beautiful color palettes from
+                your favorite images using ColorPeek's tools.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>May 10, 2025</span>
+                <span class="mx-2">•</span>
+                <span>6 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Article - Color Harmony Guide -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/color-harmony-guide.html">
+              <img
+                src="assets/blog/color-harmony-guide.jpg"
+                alt="Color Harmony Guide"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Color+Harmony+Guide'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Color Theory
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/color-harmony-guide.html"
+                  >What is Color Harmony? A Beginner's Guide for Designers</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Learn the fundamental principles of color harmony and how to
+                apply them to create balanced, visually appealing designs.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>April 21, 2025</span>
+                <span class="mx-2">•</span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/web-accessibility-colors.html">
+              <img
+                src="assets/blog/web-accessibility-colors.jpg"
+                alt="Web Accessibility Colors"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/059669/ffffff?text=Web+Accessibility'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Accessibility
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/web-accessibility-colors.html"
+                  >WCAG 2.1 Color Contrast Guidelines Explained</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Learn how to ensure your web designs meet accessibility
+                standards with proper color contrast ratios.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>May 5, 2025</span>
+                <span class="mx-2">•</span>
+                <span>7 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/color-extraction-tips.html">
+              <img
+                src="assets/blog/color-extraction-tips.jpg"
+                alt="Color Extraction Tips"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/dc2626/ffffff?text=Color+Extraction+Tips'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Tutorials
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/color-extraction-tips.html"
+                  >5 Advanced Tips for Color Extraction in Your Design
+                  Workflow</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Take your design process to the next level with these advanced
+                color extraction techniques using ColorPeek.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>April 21, 2025</span>
+                <span class="mx-2">•</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article 4 -->
+          <div
+            class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md"
+          >
+            <a href="blog/color-psychology-marketing.html">
+              <img
+                src="assets/blog/color-psychology-marketing.jpg"
+                alt="Color Psychology in Marketing"
+                class="w-full h-48 object-cover"
+                onerror="this.src='https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Color+Psychology'"
+              />
+            </a>
+            <div class="p-6">
+              <div
+                class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1"
+              >
+                Color Theory
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <a href="blog/color-psychology-marketing.html"
+                  >How Color Psychology Influences Customer Behavior</a
+                >
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Explore how different colors affect consumer perception and how
+                to leverage this knowledge in your marketing designs.
+              </p>
+              <div class="flex items-center text-gray-500 dark:text-gray-400">
+                <span>April 20, 2025</span>
+                <span class="mx-2">•</span>
+                <span>9 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div
+        class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white"
+      >
+        <div class="md:flex items-center justify-between">
+          <div class="md:w-2/3 mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold mb-2">Stay up to date</h3>
+            <p class="text-blue-100">
+              Get notified about new articles and color design resources.
+            </p>
+          </div>
+          <div class="md:w-1/3">
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="px-4 py-2 rounded-l-lg w-full text-gray-900 focus:outline-none"
+              />
+              <button
+                type="submit"
+                class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-r-lg transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-100 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="ColorPeek Logo"
+                width="24"
+                height="24"
+                class="mr-2"
+              />
+              <span class="text-gray-700 dark:text-gray-300 font-medium"
+                >ColorPeek</span
+              >
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4 md:gap-6 justify-center">
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >About</a
+            >
+            <a
+              href="faq.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >FAQ</a
+            >
+            <a
+              href="blog.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Contact</a
+            >
+            <a
+              href="privacy-policy.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="sitemap.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Sitemap</a
+            >
+          </div>
+        </div>
+        <div class="mt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+          &copy; <span id="current-year">2025</span> ColorPeek. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Update year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+
+      // Set initial toggle state based on current theme
+      if (document.documentElement.classList.contains("dark-mode")) {
+        themeToggle.checked = true;
+      }
+
+      // Handle theme toggle
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark-mode");
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Navbar scroll effect
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

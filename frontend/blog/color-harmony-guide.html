@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      What is Color Harmony? A Beginner's Guide for Designers - ColorPeek Blog
+    </title>
+    <meta
+      name="description"
+      content="Learn the fundamental principles of color harmony and how to apply them to create balanced, visually appealing designs."
+    />
+    <meta name="author" content="ColorPeek Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta
+      name="keywords"
+      content="color harmony, color theory guide, complementary colors, analogous colors, triadic harmony, color combinations, color wheel design, design with color theory, UI/UX palette"
+    />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://color-peek.com/blog/color-harmony-guide"
+    />
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Modern CSS Variables for Light Mode */
+      :root {
+        --transition: all 0.3s ease;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+      }
+
+      /* Dark mode toggle styling */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #3b82f6;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #111827;
+        color: #f8fafc;
+      }
+
+      /* Navbar styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-mode .navbar {
+        background: rgba(17, 24, 39, 0.6);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .navbar.scrolled {
+        background: rgba(17, 24, 39, 0.9);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #0f172a;
+      }
+
+      .dark-mode .logo {
+        color: #f8fafc;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 250;
+        position: relative;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .nav-links a {
+        color: #f8fafc;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Blog post specific styles */
+      .article-content h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #1e293b;
+      }
+
+      .dark-mode .article-content h2 {
+        color: #f1f5f9;
+      }
+
+      .article-content h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #1e293b;
+      }
+
+      .dark-mode .article-content h3 {
+        color: #f1f5f9;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .article-content ul,
+      .article-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      .article-content ul li,
+      .article-content ol li {
+        margin-bottom: 0.5rem;
+        line-height: 1.7;
+      }
+
+      .article-content img {
+        margin: 2rem auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .dark-mode .article-content img {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .color-swatch {
+        width: 100%;
+        height: 80px;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-divider {
+        height: 1px;
+        background: #e5e7eb;
+        margin: 2rem 0;
+      }
+
+      .dark-mode .section-divider {
+        background: #374151;
+      }
+
+      .emoji-icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+        display: inline-block;
+      }
+
+      pre {
+        background: #f1f5f9;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+      }
+
+      .dark-mode pre {
+        background: #1e293b;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .check-item::before {
+        content: "✅";
+        margin-right: 0.5rem;
+      }
+
+      /* Harmony table styles */
+      .harmony-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        overflow: hidden;
+        border-radius: 0.5rem;
+      }
+
+      .harmony-table th,
+      .harmony-table td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border: 1px solid #e5e7eb;
+      }
+
+      .dark-mode .harmony-table th,
+      .dark-mode .harmony-table td {
+        border-color: #374151;
+      }
+
+      .harmony-table th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+
+      .dark-mode .harmony-table th {
+        background-color: #1e293b;
+      }
+
+      .harmony-table tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+
+      .dark-mode .harmony-table tr:nth-child(even) {
+        background-color: #1e293b;
+      }
+
+      .dark-mode .harmony-table tr:nth-child(odd) {
+        background-color: #111827;
+      }
+
+      /* Color wheel visualization */
+      .color-wheel-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .color-harmony-example {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .color-harmony-example .color-box {
+        width: 60px;
+        height: 60px;
+        border-radius: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Check and apply theme from local storage -->
+    <script>
+      (function () {
+        // Only apply dark mode if explicitly saved in localStorage
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="../assets/logo.svg"
+            alt="ColorPeek Logo"
+            width="30"
+            height="30"
+          />
+          <span>ColorPeek</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="../index.html" aria-label="Home page">Home</a>
+            <a href="../about.html" aria-label="About page">About</a>
+            <a href="../faq.html" aria-label="FAQ page">FAQ</a>
+            <a href="../blog.html" aria-label="Blog page" class="active"
+              >Blog</a
+            >
+            <a href="../contact.html" aria-label="Contact page">Contact</a>
+          </div>
+
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="container mx-auto max-w-3xl px-4 py-16 pt-32">
+      <!-- Article Header -->
+      <header class="mb-8">
+        <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">
+          Color Theory
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          What is Color Harmony? A Beginner's Guide for Designers
+        </h1>
+        <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+          <span>By ColorPeek Team</span>
+          <span class="mx-2">•</span>
+          <span>8 min read</span>
+        </div>
+        <img
+          src="../assets/blog/color-harmony-guide.jpg"
+          alt="Color Harmony Guide"
+          class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
+          onerror="this.src='https://via.placeholder.com/1200x600/8b5cf6/ffffff?text=Color+Harmony+Guide'"
+        />
+      </header>
+
+      <!-- Article Body -->
+      <div
+        class="article-content prose prose-lg max-w-none text-gray-700 dark:text-gray-300"
+      >
+        <h2><span class="emoji-icon">🧠</span>What is Color Harmony?</h2>
+
+        <p>
+          Color harmony is the principle of combining colors in a way that's
+          aesthetically pleasing to the eye. It helps you build cohesive designs
+          that feel balanced, whether you're creating a website, logo, or
+          graphic art.
+        </p>
+
+        <p>
+          It's based on color theory and the color wheel, which has guided
+          artists and designers for centuries.
+        </p>
+
+        <div class="color-wheel-container">
+          <img
+            src="../assets/blog/color-wheel.png"
+            alt="Color Wheel"
+            class="w-64 h-64 object-contain"
+            onerror="this.src='https://via.placeholder.com/256x256/ffffff/333333?text=Color+Wheel'"
+          />
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>
+          <span class="emoji-icon">🎯</span>Why Does Color Harmony Matter?
+        </h2>
+
+        <ul>
+          <li class="check-item">Creates balance and unity in design</li>
+          <li class="check-item">
+            Highlights important elements (CTAs, headings)
+          </li>
+          <li class="check-item">
+            Helps with brand recognition and emotional response
+          </li>
+          <li class="check-item">Aids accessibility and readability</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2><span class="emoji-icon">🎨</span>Types of Color Harmony</h2>
+
+        <p>
+          Let's break down the most popular harmony rules you can explore using
+          tools like ColorPeek:
+        </p>
+
+        <h3><span class="emoji-icon">1️⃣</span>Complementary Colors</h3>
+
+        <ul>
+          <li>Colors directly opposite each other on the color wheel</li>
+          <li>Example: Blue and Orange</li>
+          <li>⚡ High contrast, great for calls to action and logos</li>
+        </ul>
+
+        <div class="color-harmony-example">
+          <div class="color-box" style="background-color: #2563eb"></div>
+          <div class="color-box" style="background-color: #ea580c"></div>
+        </div>
+
+        <h3><span class="emoji-icon">2️⃣</span>Analogous Colors</h3>
+
+        <ul>
+          <li>Three colors side-by-side on the color wheel</li>
+          <li>Example: Red, Orange, Yellow</li>
+          <li>🔥 Soft, soothing, ideal for natural, harmonious designs</li>
+        </ul>
+
+        <div class="color-harmony-example">
+          <div class="color-box" style="background-color: #dc2626"></div>
+          <div class="color-box" style="background-color: #ea580c"></div>
+          <div class="color-box" style="background-color: #eab308"></div>
+        </div>
+
+        <h3><span class="emoji-icon">3️⃣</span>Triadic Colors</h3>
+
+        <ul>
+          <li>Three colors evenly spaced around the wheel</li>
+          <li>Example: Red, Blue, Yellow</li>
+          <li>💥 Vibrant and energetic, best for playful or creative brands</li>
+        </ul>
+
+        <div class="color-harmony-example">
+          <div class="color-box" style="background-color: #dc2626"></div>
+          <div class="color-box" style="background-color: #2563eb"></div>
+          <div class="color-box" style="background-color: #eab308"></div>
+        </div>
+
+        <h3><span class="emoji-icon">4️⃣</span>Split Complementary</h3>
+
+        <ul>
+          <li>One base color + two adjacent to its opposite</li>
+          <li>Less tension than pure complementary, but still punchy</li>
+        </ul>
+
+        <div class="color-harmony-example">
+          <div class="color-box" style="background-color: #2563eb"></div>
+          <div class="color-box" style="background-color: #d97706"></div>
+          <div class="color-box" style="background-color: #dc2626"></div>
+        </div>
+
+        <h3><span class="emoji-icon">5️⃣</span>Monochromatic</h3>
+
+        <ul>
+          <li>Variations in lightness and saturation of one hue</li>
+          <li>Elegant, minimalist, and often calming</li>
+        </ul>
+
+        <div class="color-harmony-example">
+          <div class="color-box" style="background-color: #dbeafe"></div>
+          <div class="color-box" style="background-color: #93c5fd"></div>
+          <div class="color-box" style="background-color: #3b82f6"></div>
+          <div class="color-box" style="background-color: #1d4ed8"></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>
+          <span class="emoji-icon">🛠️</span>Use ColorPeek to Find Perfect
+          Harmonies
+        </h2>
+
+        <p>
+          ColorPeek offers harmony suggestions automatically when you extract
+          colors from an image. It helps you visualize:
+        </p>
+
+        <ul>
+          <li class="check-item">Analogous blends from a photo</li>
+          <li class="check-item">Complementary pairs that pop</li>
+          <li class="check-item">Triadic layouts for branding</li>
+        </ul>
+
+        <p>And bonus — it checks contrast accessibility automatically!</p>
+
+        <h3>Best Use Cases for Each Harmony</h3>
+
+        <table class="harmony-table">
+          <thead>
+            <tr>
+              <th>Harmony Type</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Complementary</td>
+              <td>Buttons, CTAs, logos</td>
+            </tr>
+            <tr>
+              <td>Analogous</td>
+              <td>Backgrounds, gradients, mobile UIs</td>
+            </tr>
+            <tr>
+              <td>Triadic</td>
+              <td>Landing pages, vibrant themes</td>
+            </tr>
+            <tr>
+              <td>Monochromatic</td>
+              <td>Minimalist sites, portfolios</td>
+            </tr>
+            <tr>
+              <td>Split Complementary</td>
+              <td>Balanced yet bold branding</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <h2><span class="emoji-icon">❓</span>FAQs</h2>
+
+        <h3>Q: Can I use these harmony rules in Figma or Canva?</h3>
+        <p>
+          Yes! Use the HEX codes provided by ColorPeek in your design tools
+          easily.
+        </p>
+
+        <h3>Q: How do I know if the colors are accessible?</h3>
+        <p>
+          Use ColorPeek's built-in contrast checker to ensure readability for
+          all users.
+        </p>
+
+        <h3>Q: Can I download my harmonies?</h3>
+        <p>Absolutely. You can copy the codes or export palettes directly.</p>
+
+        <div class="section-divider"></div>
+
+        <h2><span class="emoji-icon">🧑‍🎨</span>Final Thoughts</h2>
+
+        <p>
+          Understanding and applying color harmony will take your designs to the
+          next level. You don't need to memorize complex color theory — just
+          pick your image, and let ColorPeek do the work.
+        </p>
+
+        <div class="mt-12 p-6 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+          <h3 class="text-blue-700 dark:text-blue-300">
+            Ready to explore color harmonies?
+          </h3>
+          <p class="mb-4">
+            Try ColorPeek now and discover the harmony behind every hue!
+          </p>
+          <a
+            href="../index.html"
+            class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300"
+            >Try ColorPeek Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+          <a
+            href="../blog.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 17l-5-5m0 0l5-5m-5 5h12"
+              />
+            </svg>
+            Back to Blog
+          </a>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-100 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center">
+              <img
+                src="../assets/logo.svg"
+                alt="ColorPeek Logo"
+                width="24"
+                height="24"
+                class="mr-2"
+              />
+              <span class="text-gray-700 dark:text-gray-300 font-medium"
+                >ColorPeek</span
+              >
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4 md:gap-6 justify-center">
+            <a
+              href="../index.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Home</a
+            >
+            <a
+              href="../about.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >About</a
+            >
+            <a
+              href="../faq.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >FAQ</a
+            >
+            <a
+              href="../blog.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Blog</a
+            >
+            <a
+              href="../contact.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Contact</a
+            >
+            <a
+              href="../privacy-policy.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="../sitemap.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Sitemap</a
+            >
+          </div>
+        </div>
+        <div class="mt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+          &copy; <span id="current-year">2025</span> ColorPeek. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Update year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+
+      // Set initial toggle state based on current theme
+      if (document.documentElement.classList.contains("dark-mode")) {
+        themeToggle.checked = true;
+      }
+
+      // Handle theme toggle
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark-mode");
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Navbar scroll effect
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

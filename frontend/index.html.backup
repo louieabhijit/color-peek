@@ -1418,12 +1418,6 @@
                 aria-label="Contact page"
                 >Contact</a
               >
-              <a
-                href="blog.html"
-                class="dynamic-contrast"
-                aria-label="Blog page"
-                >Blog</a
-              >
             </div>
             <div class="nav-group">
               <a
@@ -4273,44 +4267,10 @@
       };
 
       // Define backend URL
-      const BACKEND_URL = "http://localhost:5051";
-
-      // Test backend connectivity
-      async function testBackendConnectivity() {
-        try {
-          console.log("Testing backend connectivity...");
-          const response = await fetch(`${BACKEND_URL}/health`, {
-            method: "GET",
-            mode: "cors",
-          });
-
-          if (response.ok) {
-            console.log("Backend server is responding properly");
-            document
-              .getElementById("backendErrorBanner")
-              .classList.add("hidden");
-          } else {
-            console.error(
-              "Backend server responded with status:",
-              response.status
-            );
-            document
-              .getElementById("backendErrorBanner")
-              .classList.remove("hidden");
-          }
-        } catch (error) {
-          console.error("Error connecting to backend:", error);
-          document
-            .getElementById("backendErrorBanner")
-            .classList.remove("hidden");
-        }
-      }
+      const BACKEND_URL = "http://localhost:5050";
 
       // Theme toggle functionality
       document.addEventListener("DOMContentLoaded", function () {
-        // Test backend connectivity
-        testBackendConnectivity();
-
         const themeToggle = document.getElementById("themeToggle");
         const imageInput = document.getElementById("imageInput");
         const mainImageDisplay = document.getElementById("mainImageDisplay");
@@ -4690,21 +4650,6 @@
           }
 
           console.log("Processing URL file:", file.name);
-
-          // Check file size (10MB limit)
-          const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
-          if (file.size > MAX_FILE_SIZE) {
-            showError("Image is too large. Maximum size is 10MB.");
-            return;
-          }
-
-          // Validate file type
-          const validTypes = ["image/jpeg", "image/png", "image/jpg"];
-          if (!validTypes.includes(file.type)) {
-            showError("Please select a valid image file (JPEG or PNG)");
-            return;
-          }
-
           setUrlLoading(true);
           hideError();
 
@@ -4721,17 +4666,6 @@
           if (!response.ok) {
             if (response.status === 0)
               throw new Error("Cannot connect to backend");
-
-            // Try to get more detailed error from the response
-            try {
-              const errorData = await response.json();
-              if (errorData && errorData.error) {
-                throw new Error(errorData.error);
-              }
-            } catch (jsonError) {
-              // If parsing JSON fails, use the status text
-            }
-
             throw new Error(
               `Server responded with ${response.status}: ${response.statusText}`
             );
@@ -4742,7 +4676,6 @@
           console.log("Extracted colors from URL image:", colors);
           displayColors(colors);
         } catch (error) {
-          console.error("Error extracting colors from URL:", error);
           if (
             error.message.includes("Failed to fetch") ||
             error.message.includes("Cannot connect")
@@ -4820,20 +4753,6 @@
           const file = input.files[0];
           console.log("Processing file:", file.name);
 
-          // Check file size (10MB limit)
-          const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
-          if (file.size > MAX_FILE_SIZE) {
-            showError("Image is too large. Maximum size is 10MB.");
-            return;
-          }
-
-          // Validate file type
-          const validTypes = ["image/jpeg", "image/png", "image/jpg"];
-          if (!validTypes.includes(file.type)) {
-            showError("Please select a valid image file (JPEG or PNG)");
-            return;
-          }
-
           setLoading(true);
           hideError();
 
@@ -4850,17 +4769,6 @@
           if (!response.ok) {
             if (response.status === 0)
               throw new Error("Cannot connect to backend");
-
-            // Try to get more detailed error from the response
-            try {
-              const errorData = await response.json();
-              if (errorData && errorData.error) {
-                throw new Error(errorData.error);
-              }
-            } catch (jsonError) {
-              // If parsing JSON fails, use the status text
-            }
-
             throw new Error(
               `Server responded with ${response.status}: ${response.statusText}`
             );
@@ -4871,7 +4779,6 @@
           console.log("Extracted colors:", colors);
           displayColors(colors);
         } catch (error) {
-          console.error("Error extracting colors:", error);
           if (
             error.message.includes("Failed to fetch") ||
             error.message.includes("Cannot connect")
@@ -6899,10 +6806,10 @@
               FAQ
             </a>
             <a
-              href="contact.html"
+              href="mailto:contact@color-peek.com"
               class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             >
-              Contact
+              Contact Us
             </a>
             <a
               href="privacy-policy.html"

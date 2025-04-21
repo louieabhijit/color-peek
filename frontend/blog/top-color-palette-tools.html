@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Top 5 Free Color Palette Tools for Designers in 2025 - ColorPeek Blog
+    </title>
+    <meta
+      name="description"
+      content="Discover the best free color palette generators and extraction tools that every designer should have in their toolkit for 2025."
+    />
+    <meta name="author" content="ColorPeek Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta
+      name="keywords"
+      content="color palette generator, color picker tools, UI/UX design tools, hex code tools, best color tools 2025, free color extractors"
+    />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://color-peek.com/blog/top-color-palette-tools"
+    />
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Modern CSS Variables for Light Mode */
+      :root {
+        --transition: all 0.3s ease;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+      }
+
+      /* Dark mode toggle styling */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #3b82f6;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #111827;
+        color: #f8fafc;
+      }
+
+      /* Navbar styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-mode .navbar {
+        background: rgba(17, 24, 39, 0.6);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .navbar.scrolled {
+        background: rgba(17, 24, 39, 0.9);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #0f172a;
+      }
+
+      .dark-mode .logo {
+        color: #f8fafc;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 250;
+        position: relative;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .nav-links a {
+        color: #f8fafc;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Blog post specific styles */
+      .article-content h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #1e293b;
+      }
+
+      .dark-mode .article-content h2 {
+        color: #f1f5f9;
+      }
+
+      .article-content h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #1e293b;
+      }
+
+      .dark-mode .article-content h3 {
+        color: #f1f5f9;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .article-content ul,
+      .article-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      .article-content ul li,
+      .article-content ol li {
+        margin-bottom: 0.5rem;
+        line-height: 1.7;
+      }
+
+      .article-content img {
+        margin: 2rem auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .dark-mode .article-content img {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .color-swatch {
+        width: 100%;
+        height: 80px;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-divider {
+        height: 1px;
+        background: #e5e7eb;
+        margin: 2rem 0;
+      }
+
+      .dark-mode .section-divider {
+        background: #374151;
+      }
+
+      .emoji-icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+        display: inline-block;
+      }
+
+      pre {
+        background: #f1f5f9;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+      }
+
+      .dark-mode pre {
+        background: #1e293b;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .check-item::before {
+        content: "✅";
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Check and apply theme from local storage -->
+    <script>
+      (function () {
+        // Only apply dark mode if explicitly saved in localStorage
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="../assets/logo.svg"
+            alt="ColorPeek Logo"
+            width="30"
+            height="30"
+          />
+          <span>ColorPeek</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="../index.html" aria-label="Home page">Home</a>
+            <a href="../about.html" aria-label="About page">About</a>
+            <a href="../faq.html" aria-label="FAQ page">FAQ</a>
+            <a href="../blog.html" aria-label="Blog page" class="active"
+              >Blog</a
+            >
+            <a href="../contact.html" aria-label="Contact page">Contact</a>
+          </div>
+
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="container mx-auto max-w-3xl px-4 py-16 pt-32">
+      <!-- Article Header -->
+      <header class="mb-8">
+        <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">
+          Tools
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Top 5 Free Color Palette Tools for Designers in 2025
+        </h1>
+        <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+          <span>By ColorPeek Team</span>
+          <span class="mx-2">•</span>
+          <span>7 min read</span>
+        </div>
+        <img
+          src="../assets/blog/top-color-palette-tools.jpg"
+          alt="Top 5 Free Color Palette Tools for Designers"
+          class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
+          onerror="this.src='https://via.placeholder.com/1200x600/3b82f6/ffffff?text=Top+Color+Palette+Tools'"
+        />
+      </header>
+
+      <!-- Article Body - Part 1 -->
+      <div
+        class="article-content prose prose-lg max-w-none text-gray-700 dark:text-gray-300"
+      >
+        <h2><span class="emoji-icon">🧠</span>Introduction</h2>
+
+        <p>
+          Color can make or break a design. Whether you're a designer,
+          developer, or branding expert, having the right color palette tool in
+          2025 is essential. Luckily, there are several amazing (and free!)
+          tools that can help you pick, generate, and extract color combinations
+          easily.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>
+          <span class="emoji-icon">🛠️</span>What Makes a Great Color Palette
+          Tool?
+        </h2>
+
+        <ul>
+          <li class="check-item">Intuitive interface</li>
+          <li class="check-item">Export options (PNG, HEX, SCSS, JSON)</li>
+          <li class="check-item">
+            Color harmony suggestions (complementary, triadic, analogous)
+          </li>
+          <li class="check-item">Smart color extraction from images</li>
+          <li class="check-item">No login, works right in your browser</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2><span class="emoji-icon">🚀</span>The Top 5 Color Tools in 2025</h2>
+
+        <h3><span class="emoji-icon">1️⃣</span>ColorPeek (🌟 Our Pick!)</h3>
+
+        <p><strong>Why it stands out:</strong></p>
+        <ul>
+          <li>Extracts colors from images (upload or URL)</li>
+          <li>Shows HEX, RGB, HSL, HSV, and CMYK</li>
+          <li>Built-in contrast checker for accessibility</li>
+          <li>Automatically generates color harmonies</li>
+        </ul>
+
+        <p><strong>It's perfect for:</strong></p>
+        <p>
+          Designers working from inspiration images, branding experts, web
+          developers
+        </p>
+
+        <div class="grid grid-cols-5 gap-2 my-6">
+          <div class="color-swatch" style="background-color: #3b82f6"></div>
+          <div class="color-swatch" style="background-color: #4f46e5"></div>
+          <div class="color-swatch" style="background-color: #8b5cf6"></div>
+          <div class="color-swatch" style="background-color: #ec4899"></div>
+          <div class="color-swatch" style="background-color: #06b6d4"></div>
+        </div>
+
+        <h3><span class="emoji-icon">2️⃣</span>Coolors.co</h3>
+
+        <p>A user-favorite, Coolors is fast and versatile.</p>
+        <ul>
+          <li>Lock colors you like, shuffle others</li>
+          <li>Export to PDF, PNG, SCSS, and more</li>
+          <li>Explore trending palettes</li>
+        </ul>
+
+        <h3><span class="emoji-icon">3️⃣</span>Adobe Color</h3>
+
+        <p>
+          Adobe's official palette tool is perfect for people using Photoshop or
+          Illustrator.
+        </p>
+        <ul>
+          <li>Generates palettes from rules (complementary, triadic, etc.)</li>
+          <li>Integrated with Adobe Creative Cloud</li>
+          <li>Supports color blindness checking</li>
+        </ul>
+
+        <h3><span class="emoji-icon">4️⃣</span>Paletton</h3>
+
+        <p>More advanced and great for developers.</p>
+        <ul>
+          <li>Live previews of UI with chosen colors</li>
+          <li>Save and export as SCSS or text</li>
+          <li>Traditional wheel-based design approach</li>
+        </ul>
+
+        <h3><span class="emoji-icon">5️⃣</span>Colormind</h3>
+
+        <p>An AI-powered tool that creates beautiful palettes.</p>
+        <ul>
+          <li>Trained on real-world UI examples</li>
+          <li>Accepts input for brand colors or base tones</li>
+          <li>Outputs 5-color themes great for apps and games</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>
+          <span class="emoji-icon">🔥</span>Why Designers Choose ColorPeek in
+          2025
+        </h2>
+
+        <p>
+          ColorPeek is modern, distraction-free, and made specifically for
+          real-time image-based color extraction. If you ever thought:
+        </p>
+
+        <blockquote
+          class="p-4 italic border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-400 my-6"
+        >
+          "I love this image — I wish I could use these exact colors!"
+        </blockquote>
+
+        <p>Then ColorPeek is the tool made for you.</p>
+
+        <div class="section-divider"></div>
+
+        <h2><span class="emoji-icon">💬</span>Final Thoughts</h2>
+
+        <p>
+          The right color palette tool saves hours of trial and error. Whether
+          you're just starting out or a seasoned pro, try one (or all) of the
+          tools above — and see how it elevates your design process.
+        </p>
+
+        <div class="mt-12 p-6 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+          <h3 class="text-blue-700 dark:text-blue-300">
+            Ready to try the best color extraction tool?
+          </h3>
+          <p class="mb-4">
+            Start with ColorPeek — the fastest way to extract colors from images
+            and generate stunning palettes!
+          </p>
+          <a
+            href="../index.html"
+            class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300"
+            >Try ColorPeek Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+          <a
+            href="../blog.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 17l-5-5m0 0l5-5m-5 5h12"
+              />
+            </svg>
+            Back to Blog
+          </a>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-100 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center">
+              <img
+                src="../assets/logo.svg"
+                alt="ColorPeek Logo"
+                width="24"
+                height="24"
+                class="mr-2"
+              />
+              <span class="text-gray-700 dark:text-gray-300 font-medium"
+                >ColorPeek</span
+              >
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4 md:gap-6 justify-center">
+            <a
+              href="../index.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Home</a
+            >
+            <a
+              href="../about.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >About</a
+            >
+            <a
+              href="../faq.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >FAQ</a
+            >
+            <a
+              href="../blog.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Blog</a
+            >
+            <a
+              href="../contact.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Contact</a
+            >
+            <a
+              href="../privacy-policy.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="../sitemap.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Sitemap</a
+            >
+          </div>
+        </div>
+        <div class="mt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+          &copy; <span id="current-year">2023</span> ColorPeek. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Update year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+
+      // Set initial toggle state based on current theme
+      if (document.documentElement.classList.contains("dark-mode")) {
+        themeToggle.checked = true;
+      }
+
+      // Handle theme toggle
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark-mode");
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Navbar scroll effect
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
