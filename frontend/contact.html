@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - ColorPeek | Free Color Palette Generator</title>
+    <meta
+      name="description"
+      content="Get in touch with the ColorPeek team. We'd love to hear your feedback, suggestions, or answer any questions about our free color extraction tool."
+    />
+    <meta name="author" content="Abhijit, ColorPeek" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://color-peek.com/contact" />
+
+    <!-- Favicon and Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Modern CSS Variables for Light Mode */
+      :root {
+        --transition: all 0.3s ease;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+      }
+
+      /* Dark mode toggle styling */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #3b82f6;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #111827;
+        color: #f8fafc;
+      }
+
+      /* Navbar styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-mode .navbar {
+        background: rgba(17, 24, 39, 0.6);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .navbar.scrolled {
+        background: rgba(17, 24, 39, 0.9);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #0f172a;
+      }
+
+      .dark-mode .logo {
+        color: #f8fafc;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 250;
+        position: relative;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .nav-links a {
+        color: #f8fafc;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Form focus effects */
+      .form-input:focus,
+      .form-textarea:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        outline: none;
+      }
+
+      /* Button hover animation */
+      .submit-btn {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .submit-btn:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transition: all 0.6s ease;
+      }
+
+      .submit-btn:hover:after {
+        left: 100%;
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed, #2563eb);
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 6s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Success message animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .success-message {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Check and apply theme from local storage -->
+    <script>
+      (function () {
+        // Only apply dark mode if explicitly saved in localStorage
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="assets/logo.svg"
+            alt="ColorPeek Logo"
+            width="30"
+            height="30"
+          />
+          <span>ColorPeek</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="index.html" aria-label="Home page">Home</a>
+            <a href="about.html" aria-label="About page">About</a>
+            <a href="faq.html" aria-label="FAQ page">FAQ</a>
+            <a href="contact.html" aria-label="Contact page" class="active"
+              >Contact</a
+            >
+          </div>
+
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page Content -->
+    <div class="container mx-auto px-4 py-16 pt-32 max-w-4xl">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-10">
+        <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
+          Contact <span class="gradient-text">Us</span>
+        </h1>
+
+        <div
+          class="prose prose-lg max-w-none dark:prose-invert text-gray-700 dark:text-gray-300"
+        >
+          <p class="mb-8">
+            We'd love to hear from you! Whether you have a question, feedback,
+            or a feature suggestion, please fill out the form below or email us
+            directly at
+            <a
+              href="mailto:abhijitchapke@color-peek.com"
+              class="text-blue-600 dark:text-blue-400 hover:underline"
+              >contact@color-peek.com</a
+            >.
+          </p>
+
+          <!-- Success Message (Hidden by default) -->
+          <div
+            id="successMessage"
+            class="hidden success-message bg-green-50 dark:bg-green-900/30 p-6 rounded-lg mb-8 text-center"
+          >
+            <h3
+              class="text-xl font-medium mb-2 text-green-700 dark:text-green-300"
+            >
+              Message Sent Successfully!
+            </h3>
+            <p class="text-green-800 dark:text-green-200">
+              Thank you for reaching out. We'll get back to you as soon as
+              possible.
+            </p>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contactForm" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="subject"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              >
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                placeholder="What's this about?"
+              />
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                class="form-textarea w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                placeholder="Your message here..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input
+                  id="privacy"
+                  name="privacy"
+                  type="checkbox"
+                  required
+                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label
+                  for="privacy"
+                  class="font-medium text-gray-700 dark:text-gray-300"
+                >
+                  I agree to the
+                  <a
+                    href="privacy-policy.html"
+                    class="text-blue-600 dark:text-blue-400 hover:underline"
+                    >privacy policy</a
+                  >
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="submit-btn w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-10">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
+          Other Ways to Connect
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col">
+            <div class="flex items-center mb-4">
+              <svg
+                class="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                Email Us
+              </h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400">
+              <a
+                href="mailto:abhijitchapke@color-peek.com"
+                class="hover:text-blue-600 dark:hover:text-blue-400"
+                >contact@color-peek.com</a
+              >
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="flex items-center mb-4">
+              <svg
+                class="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                Response Time
+              </h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400">
+              We typically respond within 1-2 business days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-100 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="ColorPeek Logo"
+                width="24"
+                height="24"
+                class="mr-2"
+              />
+              <span class="text-gray-700 dark:text-gray-300 font-medium"
+                >ColorPeek</span
+              >
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >About</a
+            >
+            <a
+              href="faq.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >FAQ</a
+            >
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Contact</a
+            >
+            <a
+              href="privacy-policy.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Privacy Policy</a
+            >
+            <a
+              href="sitemap.html"
+              class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >Sitemap</a
+            >
+          </div>
+        </div>
+        <div class="mt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+          &copy; <span id="current-year">2023</span> ColorPeek. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Update year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+
+      // Set initial toggle state based on current theme
+      if (document.documentElement.classList.contains("dark-mode")) {
+        themeToggle.checked = true;
+      }
+
+      // Handle theme toggle
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark-mode");
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Navbar scroll effect
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Contact Form Handling
+      const contactForm = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Normally, you'd send this data to your backend here
+        // For demonstration, we'll just show the success message
+
+        // Simulate form submission
+        setTimeout(() => {
+          // Hide the form
+          contactForm.style.display = "none";
+
+          // Show success message
+          successMessage.classList.remove("hidden");
+
+          // Reset form (if you want to show it again later)
+          contactForm.reset();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

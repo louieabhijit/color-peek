@@ -1412,12 +1412,6 @@
               <a href="faq.html" class="dynamic-contrast" aria-label="FAQ page"
                 >FAQ</a
               >
-              <a
-                href="contact.html"
-                class="dynamic-contrast"
-                aria-label="Contact page"
-                >Contact</a
-              >
             </div>
             <div class="nav-group">
               <a
@@ -1463,12 +1457,6 @@
           >
           <a href="faq.html" class="dynamic-contrast" aria-label="FAQ page"
             >FAQ</a
-          >
-          <a
-            href="contact.html"
-            class="dynamic-contrast"
-            aria-label="Contact page"
-            >Contact</a
           >
         </div>
         <div class="nav-group">
@@ -6806,7 +6794,7 @@
               FAQ
             </a>
             <a
-              href="mailto:contact@color-peek.com"
+              href="mailto:contact@colorpeek.app"
               class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             >
               Contact Us
