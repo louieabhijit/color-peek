@@ -1744,16 +1744,6 @@
                 </button>
               </div>
             </div>
-
-            <!-- Left Sidebar Sticky Ad -->
-            <div class="mt-6">
-              <div
-                id="left-sidebar-ad"
-                class="sticky top-[calc(24rem+24px)] flex justify-center items-center min-h-[600px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
-              </div>
-            </div>
           </div>
 
           <!-- Main content area - Right side -->
@@ -1788,16 +1778,6 @@
                 </h2>
               </div>
               <!-- Color palette will be inserted here by JavaScript -->
-            </div>
-
-            <!-- In-Content Ad Space 5 -->
-            <div class="my-8">
-              <div
-                id="in-content-ad-5"
-                class="flex justify-center items-center min-h-[250px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
-              </div>
             </div>
 
             <!-- Detailed Color Information Section -->
@@ -2378,16 +2358,6 @@
               </div>
             </div>
 
-            <!-- In-Content Ad Space 1 -->
-            <div class="my-8">
-              <div
-                id="in-content-ad-1"
-                class="flex justify-center items-center min-h-[250px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
-              </div>
-            </div>
-
             <!-- Color Variations Section -->
             <div
               id="colorVariationsContainer"
@@ -2447,16 +2417,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- In-Content Ad Space 2 -->
-            <div class="my-8">
-              <div
-                id="in-content-ad-2"
-                class="flex justify-center items-center min-h-[250px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
               </div>
             </div>
 
@@ -2931,16 +2891,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- In-Content Ad Space 3 -->
-            <div class="my-8">
-              <div
-                id="in-content-ad-3"
-                class="flex justify-center items-center min-h-[250px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
               </div>
             </div>
 
@@ -4129,43 +4079,12 @@
               </div>
             </div>
 
-            <!-- In-Content Ad Space 4 -->
-            <div class="my-8">
-              <div
-                id="in-content-ad-4"
-                class="flex justify-center items-center min-h-[250px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-              >
-                <span class="text-sm text-gray-400">Advertisement</span>
-              </div>
-            </div>
-
             <!-- Color Variations Section -->
             <div
               id="colorVariations"
               class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4"
             >
               <!-- Color variations will be added here -->
-            </div>
-          </div>
-
-          <!-- Right Sidebar Ad Container -->
-          <div class="hidden xl:block w-64 ml-6">
-            <div class="sticky top-24">
-              <div id="sidebar-ad" class="flex flex-col gap-4">
-                <!-- Vertical Ad Space 1 -->
-                <div
-                  class="flex justify-center items-center min-h-[600px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-                >
-                  <span class="text-sm text-gray-400">Advertisement</span>
-                </div>
-
-                <!-- Vertical Ad Space 2 -->
-                <div
-                  class="flex justify-center items-center min-h-[600px] bg-gray-100 dark:bg-gray-700 rounded-lg"
-                >
-                  <span class="text-sm text-gray-400">Advertisement</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -5241,6 +5160,20 @@
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(mainImageDisplay, 0, 0, canvas.width, canvas.height);
           imageLoaded = true;
+          // Automatically extract colors when image is loaded
+          try {
+            console.log("Auto-extracting colors after image load");
+            extractColorsFromDefaultImage();
+            // Make sure the extracted colors container is visible
+            const extractedColorsContainer = document.getElementById(
+              "extractedColorsContainer"
+            );
+            if (extractedColorsContainer) {
+              extractedColorsContainer.classList.remove("hidden");
+            }
+          } catch (err) {
+            console.error("Error automatically extracting colors:", err);
+          }
           console.log(
             "setupImageForColorPicking: canvas updated with image src:",
             mainImageDisplay.src.substring(0, 80)
