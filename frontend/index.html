@@ -4196,12 +4196,25 @@
         }
       };
 
-      // Define backend URL
-      const BACKEND_URL =
-        window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1"
-          ? "http://localhost:5051" // Development environment
-          : "https://api.color-peek.com"; // Production environment
+      // Define backend URL based on environment
+      const BACKEND_URL = (() => {
+        // Check if we're in a development environment
+        if (
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"
+        ) {
+          return "http://localhost:5051"; // Development environment
+        }
+
+        // For now, use localhost in production until api.color-peek.com is set up
+        // TODO: Change this to https://api.color-peek.com once domain is configured
+        return (
+          window.location.protocol + "//" + window.location.hostname + ":5051"
+        );
+      })();
+
+      // Log the backend URL for debugging
+      console.log("Using backend URL:", BACKEND_URL);
 
       // Test backend connectivity
       async function testBackendConnectivity() {
