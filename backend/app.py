@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from PIL import Image
 import numpy as np
 from collections import Counter
 import io
 from sklearn.cluster import KMeans
+import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -158,6 +159,31 @@ def generate_palettes():
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "ok"}), 200
+
+
+@app.route("/fetch-image", methods=["POST"])
+def fetch_image():
+    try:
+        url = request.form.get("url")
+        if not url:
+            return jsonify({"error": "No URL provided"}), 400
+
+        # Fetch the image
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+
+        # Verify it's an image
+        content_type = response.headers.get("content-type", "")
+        if not content_type.startswith("image/"):
+            return jsonify({"error": "URL does not point to a valid image"}), 400
+
+        # Return the image data
+        return Response(response.content, content_type=content_type, status=200)
+
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": f"Failed to fetch image: {str(e)}"}), 400
+    except Exception as e:
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 
 if __name__ == "__main__":
